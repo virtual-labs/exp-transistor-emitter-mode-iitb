@@ -33,7 +33,7 @@ function activity3() {
             
 
 		 	<div>
-				<input type='button' value='Start' id='power-dsp' onclick='power_button();' class='btn btn-danger' style='font-size: 1.5vw; width: 20vw;' />
+				<input type='button' value='Start' id='power-dsp' onclick='power_button();' class='btn btn-danger' style='font-size: 1.5vw; width: 23vw;' />
 			</div>
 
 			<div style='width: 80vw; display: flex; flex-direction: row; justify-content: space-evenly;'>
@@ -224,8 +224,8 @@ function power_button() {
     if (mode == 0) {
         power = false;
         btn.className = 'btn btn-success';
-        btn.value = 'Input Charcteristics';
-        heading.innerText = 'Observe Input Characteristics';
+        btn.value = 'Observing Input Charcteristics';
+        heading.innerText = 'Input Characteristics';
         inp_control.style.display = 'block';
         out_control.style.display = 'none';
         btn1.onclick = record_observation;
@@ -240,8 +240,8 @@ function power_button() {
         btn;
         power = true;
         btn.className = 'btn btn-primary';
-        btn.value = 'Output Charcteristics';
-        heading.innerText = 'Observe Output Characteristics';
+        btn.value = 'Observing Output Charcteristics';
+        heading.innerText = 'Output Characteristics';
         out_control.style.display = 'block';
         inp_control.style.display = 'none';
         btn1.onclick = record_out_observation;
@@ -446,6 +446,9 @@ function record_observation() {
     parent.innerHTML = ``;
     let tab = new Verify_Rows_Cols_Custom_Fixed_Update1(header, input_observation_table, [input_observation_table.length - 1], [[1, 2]], '', parent, true, true, verification_sucessful, 6);
     tab.load_table();
+    if (input_observation_table.length >= 5) {
+        power_button();
+    }
     // x1 = input_observation_table[input_observation_table.length - 1][1];
     // d1 = input_observation_table[input_observation_table.length - 1][3];
     var bsOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight5'));
@@ -569,5 +572,5 @@ function enable_out_buttons() {
     btn2.disabled = false;
     btn.disabled = false;
 }
-//activity3();
+// activity3();
 //# sourceMappingURL=activity3.js.map
